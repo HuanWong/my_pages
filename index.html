@@ -1,147 +1,381 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>2019-2020</title>
-		<style>
-			*{
-				padding: 0;
-				margin: 0;
-				box-sizing: border-box;
-			}
-			body{		
-				background-color: rgba(0,0,0,.8);
-			}
-			#hWrapper,#cWrapper{
-				width: 80vw;
-				height: 100vh;
-				margin: 0 auto;
-				background-color: rgba(0, 0, 0, .5);
-				overflow: hidden;
-			}
-			#hWrapper > div{
-				height: 41vh;
-				font: 12.5rem "open sans";
-				font-weight: 700;
-			}
-			#hWrapper > #y2019{
-				margin-top: -4.5rem;
-				margin-left: -1.5rem;
-				
-				animation-name: y2019in;
-				animation-duration: 1.5s;
-			}
-			@keyframes y2019in{
-				from{
-					transform: translateY(-200px);
-					color: rgba(255,255,255,1);
-				}
-				to{
-					transform: translateY(0px);
-				color: rgba(0,0,0,.8);
-				}
-			}
-			#hWrapper > #ySeparator{
-				text-align: center;
-				
-				animation-name: ySeparatorIn;
-				animation-duration: 1.5s;
-				animation-fill-mode: forwards;
-			}
-			@keyframes ySeparatorIn{
-				from{
-					transform: translateX(400px) rotate(0deg);
-					color: rgba(255,255,255,1);
-				}
-				to{
-					transform: translateX(0px) rotate(60deg);
-					color: rgba(0,0,0,.8);
-				}
-			}
-			#hWrapper > #y2020{
-				text-align: right;
-				margin-bottom: -4rem;
-				margin-right: -1.5rem;
-				padding: -100px;
-				
-				animation-name: y2020in;
-				animation-duration: 1.5s;
-			}
-			@keyframes y2020in{
-				from{
-					transform: translateY(400px);
-					color: rgba(255,255,255,1);
-				}
-				to{
-					transform: translateY(0px);
-					color: rgba(0,0,0,.8);
-				}
-			}
-			#hWrapper > #hTitle{
-				position: absolute;
-				top: 0;
-				right: 0;
-				left: 0;
-				bottom: 0;
-				margin: auto;
-				overflow: hidden;
-				
-				width: 100%;
-				height: 14rem;
-				
-				text-align: center ;
-				color: transparent;
-				font-size:0.75rem;
-				font-weight: 100;
-				letter-spacing: 1rem;
-				line-height: 3rem;
-			}
-			
-			#hWrapper > #hTitle p{
-				transition-timing-function: ease-in-out;
-			}
-			
-			#cWrapper{
-				font-size: 4rem;
-				color: white;
-				text-align: center;
-				padding: 2rem 0;
-			}
-			#cWrapper > div:first-child{
-				position: relative;
-				top: 10rem;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="hWrapper">
-			<div id="y2019">2019</div>
-			<div id="ySeparator"><-></div>
-			<div id="y2020">2020</div>
-			<div id="hTitle">
-				<p>你好WangLihuan，</p>
-				<p>告别2019，2020未来以来...</p>
-				<p>我们准备了一份属于你的</p>
-				<p>2019年度大事记列表</p>
-				<p>欢迎查收...</p>
-			</div>
-		</div>
-		<div id="cWrapper">
-			<div>
-				<p>Hello World!</p>
-				<p>苟利国家生死以</p>
-				<p>岂因祸福避趋之</p>
-			</div>
-		</div>
-		
-		<script>
-			window.onload = function(){
-				function hTitleScale(){
-					var st = document.querySelector("style");
-					st.innerHTML += "#hWrapper > #hTitle p{transform: scale(1.4); color: white; transition: 1s; }"
-				}
-				setTimeout(hTitleScale,800);
-			}
-		</script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王李焕的主页</title>
+    
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: rgba(0, 0, 0, .8);
+        }
+        .wholeViewPort{
+            width: 80vw;
+            height: 100vh;
+            overflow: hidden;
+            box-sizing: border-box;
+            
+            background-color: rgba(0, 0, 0, .5);
+
+            margin: 0 auto;
+
+            position: relative;
+        }
+        .wholeViewPort > div{
+            color: black;
+            letter-spacing: 1rem;
+        }
+        .firstRow{
+            font: 12.5rem  "微软雅黑";
+            font-weight: 700;
+            text-align: left;
+            height: 40vh;
+
+            position: relative;
+            top: -5rem;
+            left: -2rem;
+
+            animation: firstRowDown 2s;
+        }
+        .secondRow{
+            font: 5rem  "微软雅黑";
+            font-weight: 700;
+            text-align: center;
+            height: 30vh;
+
+            position: relative;
+
+            animation: secondRowAnimation 2s;
+        }
+        .thirdRow{
+            font: 12.5rem  "微软雅黑";
+            font-weight: 700;
+            text-align: right;
+            height: 40vh;
+
+            position: relative;
+            bottom: -0.5rem;
+            right: -1.5rem;
+
+            animation: thirdRowUp 2s ;
+        }
+        @keyframes firstRowDown {
+            0%{
+                color: #fff;
+                top: -16rem;
+            }
+            100%{
+                color: #000;
+                top: -5rem;
+            }
+        }
+        @keyframes secondRowAnimation {
+            0%{
+                color: #fff;
+                transform: rotate(-45deg) translateX(60rem);
+            }
+            100%{
+                color: #000;
+                transform: rotate(0deg) translateX(0rem);
+            }
+        }
+        @keyframes thirdRowUp {
+            0%{
+                color: #fff;
+                bottom: -16rem;
+            }
+            100%{
+                color: #000;
+                bottom: -0.5rem;
+            }
+        }
+
+        .wholeViewPort > .contentBox{
+            width: 100%;
+            height: 70vh;
+            /* background-color: rgba(255,255,255,.5); */
+            
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            text-align: center;
+            letter-spacing: normal;
+
+            animation: showContent 2s;
+        }
+        @keyframes showContent {
+            0%{
+                transform: scale(0.1);
+                opacity: 0;
+            }
+            40%{
+                opacity: 20;
+            }
+            60%{
+                opacity: 50;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }    
+        }
+        .searchInput{
+            box-sizing: border-box;
+            width: 400px;
+            height: 35px;
+            padding: 2px 5px;
+            
+            border: 0 solid #fff;
+            border-radius: 2px;
+            outline: none;
+            font: 16px/30px "微软雅黑";
+
+            vertical-align: top;
+        }
+        .searchBtn{
+            box-sizing: border-box;
+            height: 35px;
+            padding: 2px 5px;
+            
+            border: 0 solid #fff;
+            border-radius: 2px;
+            outline: none;
+            /* font: 16px/35px "微软雅黑"; */
+        }
+        .navBtn{
+            display: inline-block;
+            box-sizing: border-box;
+            padding-top: 15px;
+            text-decoration: none;
+        }
+        .navBox{
+            box-sizing: border-box;
+            background-color:  rgba(255,255,255,.5);
+            width: 60vw;
+            min-height: 200px;
+            margin: 10px auto;
+            padding: 20px 25px;
+
+            position: relative;
+            text-align: left;
+        }
+        .navBox::before{
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 30vw;
+
+            border-top: 5px solid rgba(255, 255, 255, 0);
+            border-right: 5px solid rgba(255, 255, 255, 0);
+            border-left: 5px solid rgba(255, 255, 255, 0);
+            border-bottom: 5px solid rgba(255, 255, 255, .5);
+        }
+        .pureLinkBox{
+            /* background-color: blue; */
+            color: white;
+            margin: 10px 0;
+
+            display: flex;
+            justify-content:space-evenly;
+        }
+        .iconLinkBox{
+            /* background-color: red; */
+            margin: 10px 0;
+
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .iconLink{
+            transition-duration: 0.5s;
+        }
+        .iconLink:hover{
+            box-shadow: 0px 0px 20px lightblue;
+            transform: scale(1.1);
+            font-weight: 700;
+        }
+        .iconLink > div{
+            text-align: center;
+            padding: 10px 10px 0 10px;
+
+            background-color: #fff;
+            border-radius: 3px;
+        }
+        .iconLink > div > img{
+            box-sizing: border-box;
+
+            width: 96px;
+            height: 96px;
+        }
+        .iconLink > div > p{
+            padding: 10px 2px;
+            margin: 5px 0;
+            border-top: 1px solid gray;
+        }
+        a{
+            text-decoration: none;
+
+            transition-duration: 0.5s;
+        }
+        a:link{
+            color: black;
+            font-weight: normal; 
+        }
+        a:visited, a:hover{
+            color: black;
+            font-weight: 700;
+        }
+        .title{
+            padding: 5px;
+            color: #fff;
+            font-weight: lighter;
+            letter-spacing: 0.5rem;
+        }
+        .pureLink{
+            padding: 3px 8px;
+            transition-duration: 0.5s;
+        }
+        .pureLink:hover{
+            background-color: #fff;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+   <div class="wholeViewPort">
+       <div class="firstRow">Hello</div>
+       <div class="secondRow">WangLiHuan</div>
+       <div class="thirdRow">nice day</div>
+
+       <div class="contentBox">
+           <p class="title">~Huan~</p>
+           <div>
+               <span>
+                   <input type="text" class="searchInput">
+               </span>
+               <span class="">
+                   <input type="button" class="searchBtn" value="百度一下">
+               </span>
+           </div>
+           <div>
+               <div class="navBox">
+                <div class="pureLinkBox">
+                    <div class="pureLink"><a href="http://www.baidu.com" target="_balnk">百度</a></div>
+                    <div class="pureLink"><a href="http://fanyi.baidu.com/" target="_balnk">百度翻译</a></div>
+                    <div class="pureLink"><a href="http://map.baidu.com/" target="_balnk">百度地图</a></div>
+                    <div class="pureLink"><a href="http://tieba.baidu.com/" target="_balnk">百度贴吧</a></div>
+                    <div class="pureLink"><a href="http://pan.baidu.com/" target="_balnk">百度网盘</a></div>
+                    <div class="pureLink"><a href="http://baike.baidu.com/" target="_balnk">百度百科</a></div>
+                   
+                    <div class="pureLink"><a href="http://cn.bing.com">必应</a></div>
+                    <div class="pureLink"><a href="https://www.sogou.com/">搜狗</a></div>
+                   </div>
+                   <hr/>
+                   <div class="iconLinkBox">
+                    <a href="https://www.bilibili.com" target="_balnk">
+                        <div class="iconLink">
+                            <div>
+                                <img src="../image/bilibili.png" alt="">
+                                <p>哔哩哔哩</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.jianshu.com/" target="_balnk">
+                        <div class="iconLink">
+                            <div>
+                                <img src="../image/jianshu.png" alt="">
+                                <p>简 书</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://m.weibo.cn/beta" target="_balnk">
+                        <div class="iconLink">
+                            <div>
+                                <img src="../image/weibo.png" alt="">
+                                <p>微博PWA</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://translate.google.cn/" target="_balnk">
+                        <div class="iconLink">
+                            <div>
+                                <img src="../image/googleTranslate.png" alt="">
+                                <p>谷歌翻译</p>
+                            </div>
+                        </div>
+                    </a>
+               </div>
+               <div class="iconLinkBox">
+                <a href="http://dict.youdao.com//" target="_balnk">
+                    <div class="iconLink">
+                        <div>
+                            <img src="../image/youdaoDictionary.png" alt="">
+                            <p>有道词典</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://mail.163.com/" target="_balnk">
+                    <div class="iconLink">
+                        <div>
+                            <img src="../image/163mail.png" alt="">
+                            <p>163邮箱</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.google.com/" target="_balnk">
+                    <div class="iconLink">
+                        <div>
+                            <img src="../image/google.webp" alt="">
+                            <p>谷歌搜索</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="http://www.zhihu.com/" target="_balnk">
+                    <div class="iconLink">
+                        <div>
+                            <img src="../image/zhihu.png" alt="">
+                            <p>知 乎</p>
+                        </div>
+                    </div>
+                </a>
+           </div>
+            </div>
+       </div>
+   </div>
+
+    <script>
+        window.onload = function(){
+            var searchBtn = document.querySelector(".searchBtn");
+            var searchInput = document.querySelector(".searchInput");
+
+            function search(){
+                let words = searchInput.value;
+                if(words){
+                    let wd = encodeURI(words.replace(" ","+"));
+                    let url = "https://www.baidu.com/s?wd="+wd;
+                    window.open(url);  
+                }
+            }
+
+            searchBtn.addEventListener("click",function (){
+                search();
+            });
+
+            window.onkeydown = function(event){
+                if (event.keyCode === 13){
+                    search();
+                }
+            }
+        }
+    </script>
+</body>
 </html>
